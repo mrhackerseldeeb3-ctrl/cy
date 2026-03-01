@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>كوكبنا اللطيف | التغير المناخي</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* تعريف الألوان اللطيفة */
+        :root {
+            --primary-green: #2ecc71;
+            --soft-blue: #3498db;
+            --warm-yellow: #f1c40f;
+            --light-bg: #f0fdf4;
+        }
+
+        body {
+            font-size: 16pt;
+            margin: 0;
+            background: var(--light-bg);
+            background-image:  url("00.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            color: #2c3e50;
+            overflow-x: hidden;
+        }
+
+        /* شاشة التحميل اللطيفة */
+        #loading {
+            position: fixed;
+            inset: 0;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loader-container {
+            position: relative;
+        }
+
+        .loader img {
+            width: 120px;
+            animation: bounceLeaf 1.5s ease-in-out infinite;
+        }
+
+        .loader-text {
+            margin-top: 20px;
+            font-weight: bold;
+            color: var(--primary-green);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes bounceLeaf {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(15deg); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        /* محتوى الصفحة الرئيسي */
+        #content {
+            display: none;
+            padding: 40px 20px;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #27ae60;
+            font-size: 3rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            font-family: 'Aref Ruqaa', serif;
+        }
+
+        /* حاوية الأزرار */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: "Vazirmatn", sans-serif;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 20px 35px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            color: white !important;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border: 4px solid white;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+
+        /* ألوان مختلفة للأزرار لزيادة "الجنون اللطيف" */
+        .btn:nth-child(2) { background: linear-gradient(135deg, #3498db, #2980b9); }
+        .btn:nth-child(3) { background: linear-gradient(135deg, #f1c40f, #f39c12); }
+        .btn:nth-child(4) { background: linear-gradient(135deg, #e67e22, #d35400); }
+
+        .btn:hover {
+            transform: scale(1.1) rotate(3deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        /* عناصر زينة طائرة (جنونية) */
+        .floating-icon {
+            position: fixed;
+            z-index: -1;
+            opacity: 0.3;
+            pointer-events: none;
+            animation: float 10s infinite linear;
+        }
+
+        @keyframes float {
+            from { transform: translateY(100vh) rotate(0deg); }
+            to { transform: translateY(-100px) rotate(360deg); }
+        }
+p{
+    font-family: "Vazirmatn", sans-serif;
+    color:#F0AE7D;
+}
+    </style>
+</head>
+<body>
+
+<div id="loading">
+    <div class="loader">
+        <img src="10.jpg" alt="leaf" onerror="this.src='10.jpg'">
+    </div>
+    <p class="loader-text">نزرع الأمل في كوكبنا...</p>
+</div>
+
+<div id="content">
+    <h1>🌱 عالمنا الأخضر 🌱</h1>
+<hr>
+<p>climate change || التغير المناخي</p>
+
+    <nav>
+        <a href="index33.html" class="btn">الرساله</a>
+        <a href="7index.html" class="btn">ماذا يعني؟</a>
+        <a href="kkkk.html" class="btn">إنجازاتنا</a>
+        <a href="ifn.html" class="btn">من أين نبدأ؟</a>
+    </nav>
+
+    <div style="margin-top: 60px; font-style: italic; color: #7f8c8d;">
+        <p id="tip">"كل شجرة تزرعها تصنع فرقاً!"</p>
+    </div>
+</div>
+
+<div class="floating-icon" style="left: 10%; font-size: 50px; animation-delay: 0s;">🌍</div>
+<div class="floating-icon" style="left: 20%; font-size: 40px; animation-delay: 2s;">☀️</div>
+<div class="floating-icon" style="left: 70%; font-size: 60px; animation-delay: 4s;">🍃</div>
+<div class="floating-icon" style="left: 85%; font-size: 45px; animation-delay: 1s;">💧</div>
+
+<script>
+    // 1. إخفاء شاشة التحميل بسلاسة
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            const loader = document.getElementById('loading');
+            loader.style.transition = '0.5s opacity';
+            loader.style.opacity = '0';
+            
+            setTimeout(() => {
+                loader.style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            }, 500);
+        }, 1500); // جعلناها ثانية ونصف لتظهر الحركات اللطيفة
+    });
+
+    // 2. تغيير النصيحة بشكل "جنوني" كل فترة
+    const tips = [
+        "ازرع نبتة اليوم! 🌱",
+        "قلل استخدام البلاستيك ♻️",
+        "وفر في استهلاك الماء 💧",
+        "الأرض تحبنا.. فلنحبها! 💚"
+    ];
+    
+    setInterval(() => {
+        const tipElement = document.getElementById('tip');
+        const randomTip = tips[Math.floor(Math.random() * tips.length)];
+        tipElement.style.opacity = 0;
+        setTimeout(() => {
+            tipElement.innerText = randomTip;
+            tipElement.style.opacity = 1;
+        }, 500);
+    }, 4000);
+
+    // 3. معالجة أخطاء الصور
+    document.querySelectorAll('img').forEach(img => {
+        img.onerror = function() {
+            this.src = 'https://via.placeholder.com/150?text=Nature';
+        };
+    });
+</script>
+
+</body>
+</html>

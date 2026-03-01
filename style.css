@@ -1,0 +1,49 @@
+
+  body {
+    font-size: 15pt;
+    background-color:lightblue;
+
+}
+h1{
+    text-align: center;
+    color:white;
+}
+hr{
+    color:green;
+}
+h2{
+    color:green;
+    text-align: right;
+    text-align: center;
+    
+}
+p{
+    color: cadetblue;
+    text-align:right;
+}
+header{
+    background-color:lightblue;
+      background: linear-gradient(135deg, #DDA0DD, #00d4ff);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background-image:url("73.jpg");
+}
+li{
+  text-align:left;
+}
+ul{
+  
+  color:red;
+  text-align:right;
+}
+.navber{
+    background-color: #007bff;
+    padding:10px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+  
+  

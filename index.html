@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تسجيل دخول أبطال المناخ</title>
+    <style>
+        :root {
+            --bg-dry: #2c3e50;
+            --bg-lush: #1b4d3e;
+            --accent: #2ecc71;
+            --on: 0;
+            --transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: var(--bg-dry);
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            overflow: hidden;
+            transition: background var(--transition);
+        }
+
+        body[data-on="true"] {
+            background: var(--bg-lush);
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(46, 204, 113, 0.2), transparent 70%);
+            opacity: var(--on);
+            transition: opacity var(--transition);
+            pointer-events: none;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5vmin;
+            z-index: 1;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .eco-wrapper {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .eco-svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .cloud {
+            fill: #ecf0f1;
+            cursor: pointer;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+        }
+
+        .raindrops {
+            fill: #3498db;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .pot { fill: #e67e22; }
+        .dirt { fill: #3e2723; }
+        
+        .sprout {
+            fill: #2ecc71;
+            transform-origin: bottom;
+            transform: scale(0);
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        [data-on="true"] .sprout {
+            transform: scale(1.5);
+        }
+
+        .flower-head {
+            fill: #f1c40f;
+            opacity: 0;
+            transition: 0.5s 0.4s;
+        }
+        [data-on="true"] .flower-head { opacity: 1; }
+
+        .login-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 2.5rem;
+            border-radius: 30px;
+            width: 340px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: translateY(30px);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.7s var(--transition);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            color: white;
+            text-align: center;
+        }
+
+        .login-form.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .form-group { margin-bottom: 1.2rem; text-align: right; }
+        .form-group label { display: block; color: #ccc; font-size: 0.85rem; margin-bottom: 5px; }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            color: white;
+            outline: none;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent);
+            border: none;
+            border-radius: 12px;
+            color: #1b4d3e;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover { background: #fff; transform: scale(1.05); }
+    </style>
+</head>
+<body data-on="false">
+
+<div class="container">
+    <div class="eco-wrapper">
+        <svg class="eco-svg" viewBox="0 0 200 300">
+            <path class="pot" d="M70 240 L130 240 L120 280 L80 280 Z" />
+            <ellipse class="dirt" cx="100" cy="240" rx="30" ry="10" />
+
+            <g class="sprout-group">
+                <path class="sprout" d="M100 240 Q90 200 100 180 Q110 200 100 240" />
+                <circle class="flower-head" cx="100" cy="180" r="10" />
+            </g>
+
+            <g class="cloud-group">
+                <path class="cloud" d="M50 80 Q50 60 70 60 Q80 40 100 40 Q120 40 130 60 Q150 60 150 80 Z" />
+                <g class="raindrops" id="drops">
+                    <circle cx="80" cy="110" r="2" />
+                    <circle cx="100" cy="120" r="2" />
+                    <circle cx="120" cy="110" r="2" />
+                </g>
+                <rect class="hit-area" x="50" y="40" width="100" height="60" fill="transparent" style="cursor:grab" />
+            </g>
+        </svg>
+    </div>
+
+    <div class="login-form">
+        <h2>أهلاً بك يا صديق البيئة</h2>
+        <p style="font-size: 0.9rem; margin-bottom: 20px;">شكراً لأنك سقيت بذور الأمل!</p>
+        <form onsubmit="return false;">
+            <div class="form-group">
+                <label>البريد الإلكتروني</label>
+                <input type="text" placeholder="name@nature.com" />
+            </div>
+            <div class="form-group">
+                <label>كلمة المرور</label>
+                <input type="password" placeholder="••••••••" />
+            </div>
+            <button class="login-btn">دخول للنظام الأخضر</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/Draggable.min.js"></script>
+
+<script>
+    gsap.registerPlugin(Draggable);
+
+    const root = document.documentElement;
+    const body = document.body;
+    const loginForm = document.querySelector('.login-form');
+    const cloud = document.querySelector('.cloud-group');
+    const drops = document.getElementById('drops');
+    
+    let isOn = false;
+
+    Draggable.create(".hit-area", {
+        type: "y",
+        bounds: { minY: 0, maxY: 100 },
+        onDrag: function() {
+            gsap.set(cloud, { y: this.y });
+            if (this.y > 20) {
+                gsap.to(drops, { opacity: 1, duration: 0.2 });
+            }
+        },
+        onRelease: function() {
+            if (this.y > 50) {
+                activateLife();
+            } else {
+                gsap.to(drops, { opacity: 0 });
+            }
+            gsap.to(cloud, { y: 0, duration: 0.6, ease: "elastic.out(1, 0.5)" });
+        }
+    });
+
+    function activateLife() {
+        if(isOn) return;
+        isOn = true;
+        
+        body.setAttribute('data-on', "true");
+        root.style.setProperty('--on', 1);
+        loginForm.classList.add('active');
+        
+        gsap.to(drops, { opacity: 0, duration: 1, delay: 0.5 });
+    }
+
+    // إضافة وظيفة زر تسجيل الدخول
+    document.querySelector('.login-btn').addEventListener('click', function(e) {
+        e.preventDefault(); // منع أي سلوك افتراضي
+        alert('Login Successful'); // رسالة النجاح بالإنجليزية
+        window.location.href = 'home.html'; // التوجيه إلى صفحة home.html
+    });
+</script>
+
+</body>
+</html>
